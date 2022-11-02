@@ -2,23 +2,25 @@ package durance.objects;
 
 public class Weapon {
 
-    private int strength;
+    private Enchant enchant;
     private String name;
-    private int ice;
-    private int fire;
-    private int lifesteal;
-    private int agility;
+    private int defaultIce;
+    private int defaultFire;
+    private int defaultLifesteal;
+    private int defaultStrength;
+    private int defaultAgility;
 
     public Weapon (String name) {
         this.name = name;
-        this.ice = 5;
-        this.fire = 5;
-        this.lifesteal = 5;
-        this.agility = 5;
-        this.strength = 5;
+        this.defaultIce = 5;
+        this.defaultFire = 5;
+        this.defaultLifesteal = 5;
+        this.defaultAgility = 5;
+        this.defaultStrength = 5;
     }
+
     public void assignEnchant(Enchant enchant) {
-        throw new UnsupportedOperationException();
+        this.enchant = enchant;
     }
 
     public String getName() {
@@ -26,22 +28,47 @@ public class Weapon {
     }
 
     public int getAgility() {
-        return agility;
+        int modifier = 0;
+        if (enchant != null &&
+                enchant.getType().equals(ENCHANT_TYPE.AGILITY)) {
+            modifier += enchant.getModifier();
+        }
+        return defaultAgility + modifier;
     }
 
     public int getFire() {
-        return fire;
+        int modifier = 0;
+        if (enchant != null &&
+                enchant.getType().equals(ENCHANT_TYPE.FIRE)) {
+            modifier += enchant.getModifier();
+        }
+        return defaultFire + modifier;
     }
 
     public int getStrength() {
-        return strength;
+        int modifier = 0;
+        if (enchant != null &&
+                enchant.getType().equals(ENCHANT_TYPE.STRENGTH)) {
+            modifier += enchant.getModifier();
+        }
+        return defaultStrength + modifier;
     }
 
     public int getIce() {
-        return ice;
+        int modifier = 0;
+        if (enchant != null &&
+                enchant.getType().equals(ENCHANT_TYPE.ICE)) {
+            modifier += enchant.getModifier();
+        }
+        return defaultIce + modifier;
     }
 
     public int getLifesteal() {
-        return lifesteal;
+        int modifier = 0;
+        if (enchant != null &&
+                enchant.getType().equals(ENCHANT_TYPE.LIFESTEAL)) {
+            modifier += enchant.getModifier();
+        }
+        return defaultLifesteal + modifier;
     }
 }

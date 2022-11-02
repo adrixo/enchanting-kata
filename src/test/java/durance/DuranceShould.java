@@ -1,5 +1,6 @@
 package durance;
 
+import durance.objects.ENCHANT_TYPE;
 import durance.objects.Enchant;
 import durance.objects.MagicBook;
 import durance.objects.Weapon;
@@ -27,7 +28,7 @@ class DuranceShould {
 
     @Test public void
     enchant_a_weapon() {
-        Enchant enchant = new Enchant();
+        Enchant enchant = new Enchant(ENCHANT_TYPE.FIRE);
         given(magicBook.getEnchant()).willReturn(enchant);
         durance.enchantWeapon();
         then(magicBook).should().getEnchant();
