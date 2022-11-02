@@ -1,14 +1,20 @@
 package durance;
 
+import durance.objects.Enchant;
 import durance.objects.MagicBook;
 import durance.objects.Weapon;
 
 public class Durance {
-    public Durance(MagicBook magicBook, Weapon weapon) {
+    private MagicBook magicBook;
+    private Weapon weapon;
 
+    public Durance(MagicBook magicBook, Weapon weapon) {
+        this.magicBook = magicBook;
+        this.weapon = weapon;
     }
 
     public void enchantWeapon() {
-        throw new UnsupportedOperationException();
+        Enchant enchant = magicBook.getEnchant();
+        weapon.assignEnchant(enchant);
     }
 }

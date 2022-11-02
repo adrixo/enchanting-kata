@@ -31,6 +31,7 @@ class DuranceShould {
         given(magicBook.getEnchant()).willReturn(enchant);
         durance.enchantWeapon();
         then(magicBook).should().getEnchant();
-        then(weapon).should().assignEnchant();
+        then(weapon).should().assignEnchant(enchant);
     }
+
 }
