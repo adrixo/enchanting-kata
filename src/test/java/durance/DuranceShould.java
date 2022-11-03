@@ -1,9 +1,6 @@
 package durance;
 
-import durance.objects.ENCHANT_TYPE;
-import durance.objects.Enchant;
-import durance.objects.MagicBook;
-import durance.objects.Weapon;
+import durance.objects.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,15 +20,14 @@ class DuranceShould {
 
     @BeforeEach
     void setUp() {
-        durance = new Durance(magicBook, weapon);
+        durance = new Durance(magicBook);
     }
 
     @Test public void
     enchant_a_weapon() {
-        Enchant enchant = new Enchant(ENCHANT_TYPE.FIRE);
+        Enchant enchant = new Enchant(PropertyType.FIRE);
         given(magicBook.getEnchant()).willReturn(enchant);
-        durance.enchantWeapon();
-        then(magicBook).should().getEnchant();
+        durance.enchant(weapon);
         then(weapon).should().assignEnchant(enchant);
     }
 

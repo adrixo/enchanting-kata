@@ -1,10 +1,10 @@
 package durance.objects;
 
 public class Enchant {
-    private final ENCHANT_TYPE type;
+    private final PropertyType type;
     private int modifier;
 
-    public Enchant(ENCHANT_TYPE type) {
+    public Enchant(PropertyType type) {
         this.modifier = 5;
         this.type = type;
     }
@@ -13,7 +13,7 @@ public class Enchant {
         return modifier;
     }
 
-    public ENCHANT_TYPE getType() {
+    public PropertyType getType() {
         return type;
     }
 }
